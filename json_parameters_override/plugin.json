@@ -1,0 +1,37 @@
+{
+    "plugin-name": "JSON-specified overrides for batch synthesis",
+    "author": "GrumpyBen",
+    "nexus-link": null,
+    "plugin-version": "0.0.1",
+    "plugin-short-description": "If a JSON file matching 'out_path' is found in sub-directory \"override\" next to that file, use that JSON file for pitch, energy, duration.",
+    "min-app-version": "2.0.0",
+    "install-requires-restart": false,
+    "uninstall-requires-restart": false,
+
+    "front-end-style-files": [],
+
+    "front-end-hooks": {
+    },
+    "back-end-hooks": {
+        "synth-line": {
+            "mid": {
+                "file": "main.py",
+                "function": "synth_line_mid"
+            },
+            "pre_energy": {
+                "file": "main.py",
+                "function": "synth_line_pre_energy"
+            }            
+        },
+        "batch-synth-line": {
+            "pre": {
+                "file": "main.py",
+                "function": "batch_synth_line_pre"
+            },
+            "post": {
+                "file": "main.py",
+                "function": "batch_synth_line_post"
+            }            
+        }
+    }
+}
